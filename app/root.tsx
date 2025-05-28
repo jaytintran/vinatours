@@ -23,8 +23,20 @@ export const links: Route.LinksFunction = () => [
     },
 ];
 
-import {registerLicense} from "@syncfusion/ej2-base";
-registerLicense(import.meta.env.VITE_LICENSE_KEY)
+
+import { registerLicense } from '@syncfusion/ej2-base';
+
+// Move the license registration to a useEffect to ensure it only runs on the client
+import { useEffect } from 'react';
+
+// Create a component to handle license registration
+export function SyncfusionLicense() {
+    useEffect(() => {
+        registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY);
+    }, []);
+    return null;
+}
+
 
 export function Layout({ children }: { children: React.ReactNode }) {
     return (
