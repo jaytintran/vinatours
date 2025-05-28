@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router";
+import { SidebarComponent } from "@syncfusion/ej2-react-navigations";
+import { NavItems } from "components";
 
 const AdminLayout = () => {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -34,14 +36,19 @@ const AdminLayout = () => {
 			<aside
 				className={`${
 					sidebarOpen ? "block" : "hidden"
-				} w-full bg-dark-100 h-screen lg:   `}
+				} w-full bg-dark-100 h-screen lg:w-[250px]`}
 			>
 				Sidebar
 			</aside>
-			<aside className="w-full max-w-[250px] hidden lg:block bg-dark-100">
-				<aside className="children">
-					<Outlet />
-				</aside>
+
+			{/* Desktop Sidebar */}
+			<aside className="w-full max-w-[250px] hidden lg:block">
+				<SidebarComponent width={270} enableGestures={false}>
+					<NavItems />
+				</SidebarComponent>
+			</aside>
+			<aside className="children !bg-dark-100">
+				<Outlet />
 			</aside>
 		</div>
 	);
