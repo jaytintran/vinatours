@@ -1,7 +1,16 @@
-import React from "react";
+import { Header } from "components";
 
 const Trips = () => {
-	return <div>Trips</div>;
+	return (
+		<main className="dashboard wrapper">
+			<Header
+				title={`Manage All Trips`}
+				description="Check out available famous trips & itineraries."
+				className="mb-4"
+			/>
+			Trip Page
+		</main>
+	);
 };
 
 export default Trips;
