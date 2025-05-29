@@ -1,8 +1,10 @@
-import React from 'react'
+import { Header } from "components";
 
 const Dashboard = () => {
-    return (
-        <div>Dashboard</div>
-    )
-}
-export default Dashboard
+	return (
+		<main className="dashboard wrapper">
+			<Header />
+		</main>
+	);
+};
+export default Dashboard;
